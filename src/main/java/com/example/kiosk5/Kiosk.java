@@ -19,7 +19,9 @@ public class Kiosk {
     public void start() throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
 
-        int categoryChoice, menuChoice;
+        int categoryChoice;
+        int menuChoice;
+        // 메뉴 카테고리 선택 및 주문 정보 선택지
         while (true) {
             System.out.println("[ MAIN MENU ] ");
             for (int i = 0; i < menus.size(); i++) {
@@ -33,7 +35,7 @@ public class Kiosk {
                 System.out.println("5. Cancel");
                 System.out.println("6. Remove Item");
             }
-
+            //카테고리 별 메뉴 리스트 및 장바구니 관리 선택지
             while(true) {
                 try {
                     categoryChoice = scanner.nextInt();
@@ -65,6 +67,7 @@ public class Kiosk {
                     scanner.nextLine();
                 }
             }
+            //음식 카테고리를 골랐을 경우에만 진행되는 플래그
             if(flag) {
                 flag = false;
                 while(true) {
@@ -94,13 +97,13 @@ public class Kiosk {
 
         }
     }
-
+    //장바구니 아이템 제거
     public void removeItemFromCart(){
         Scanner scanner = new Scanner(System.in);
         String selectToDelete = scanner.nextLine();
         cart.removeItem(selectToDelete);
     }
-
+    //장바구니 아이템 추가
     public void addToCart(AbstractItem menuItem) {
         Scanner scanner = new Scanner(System.in);
         menuItem.print();
@@ -125,7 +128,7 @@ public class Kiosk {
             }
         }
     }
-
+    //장바구니 결제 진행
     public void order() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("아래와 같이 주문 하시겠습니까?");
@@ -146,7 +149,7 @@ public class Kiosk {
             cart.getCartItems().clear();
         }
     }
-
+    //할인
     public void discountPolicy() {
         Scanner scanner = new Scanner(System.in);
         System.out.println();

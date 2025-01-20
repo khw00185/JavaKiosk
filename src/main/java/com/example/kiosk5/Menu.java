@@ -21,11 +21,11 @@ public class Menu <T extends AbstractItem> {
     public int getMenuItemSize(){
         return menuItems.size();
     }
-
+    //메뉴 아이템 리스트 반환
     public List<T> getMenuItems() {
         return menuItems;
     }
-
+    //메뉴 리스트에 아이템 추가
     public void addMenuItem(T menuItem) {
         menuItems.add(menuItem);
     }

@@ -14,7 +14,7 @@ public class Cart <T extends AbstractItem> {
     public void setDiscount(double discount) {
         this.discount = discount;
     }
-
+    // 선택한 아이템 장바구니에 담기
     public void addItem(T item) {
         boolean flag = true;
 
@@ -30,7 +30,7 @@ public class Cart <T extends AbstractItem> {
         }
     }
 
-
+    //선택한 아이템 장바구니에 지우기
     public void removeItem(String itemName) {
         T cartItem = cartItems.stream()
                 .filter(item -> item.getName().equals(itemName))
@@ -48,11 +48,12 @@ public class Cart <T extends AbstractItem> {
             System.out.println("해당 아이템을 찾을 수 없습니다.");
         }
     }
-
+    //장바구니 반환
     public List<T> getCartItems() {
         return cartItems;
     }
 
+    //장바구니 총 액수를 구해서 반환하는 메서드
     public double getTotalPrice() {
         double totalPrice = 0;
         for (T cartItem : cartItems) {
@@ -64,6 +65,7 @@ public class Cart <T extends AbstractItem> {
         }
         return totalPrice;
     }
+    //총액수에서 할인율을 계산하여 반환하는 메서드
     public double discountedPrice() {
         double totalPrice = getTotalPrice() - (getTotalPrice() * discount);
         return totalPrice;
